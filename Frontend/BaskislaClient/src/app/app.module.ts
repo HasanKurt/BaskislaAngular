@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
- 
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +20,7 @@ import { NotFoundComponent } from './error-pages/not-found/not-found.component';
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
       { path: 'person', loadChildren: () => import('./person/person.module').then(m => m.PersonModule) },
+      {path: 'authentication', loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule)},
       { path: '404', component : NotFoundComponent},
       { path: '', redirectTo: '/home', pathMatch: 'full' },
       { path: '**', redirectTo: '/404', pathMatch: 'full'}
