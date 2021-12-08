@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BaskislaAPI.Controllers
 {
     [Route("api/person")]
-    //[Authorize]   
+    [Authorize]   
     [ApiController]
     public class PersonController : ControllerBase
     {

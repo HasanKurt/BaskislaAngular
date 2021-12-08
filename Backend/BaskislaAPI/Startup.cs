@@ -68,7 +68,7 @@ namespace BaskislaAPI
                 opt.Password.RequireUppercase = false;
 
                 opt.User.RequireUniqueEmail = true;
-                opt.SignIn.RequireConfirmedEmail = true;
+                //opt.SignIn.RequireConfirmedEmail = true;
 
             })
                 .AddEntityFrameworkStores<RepositoryContext>()
@@ -148,7 +148,7 @@ namespace BaskislaAPI
             app.UseRouting();
 
             app.UseAuthentication();
-            //app.UseAuthorization();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

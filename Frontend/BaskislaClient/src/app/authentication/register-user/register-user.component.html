@@ -1,6 +1,10 @@
 <div class="card">
     <div class="card-body">
         <h1 class="card-title">Register</h1>
+        <div *ngIf="showError" class="alert alert-danger" role="alert">
+            <span [innerHTML]="errorMessage"></span>
+        </div>
+
         <form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="registerUser(registerForm.value)">
             <div class="form-group row">
                 <label for="firstName" class="col-form-label col-sm-2">First Name:</label>

@@ -13,6 +13,8 @@ import { PasswordConfirmationValidatorService } from 'src/app/shared/custom-vali
 export class RegisterUserComponent implements OnInit {
 
   public registerForm: FormGroup;
+  public errorMessage: string = '';
+  public showError: boolean;
 
   constructor(private _authService: AuthenticationService, private _passConfValidator: PasswordConfirmationValidatorService) { }
 
@@ -36,6 +38,7 @@ export class RegisterUserComponent implements OnInit {
     return this.registerForm.controls[controlName].hasError(errorName)
   }
   public registerUser = (registerFormValue) => {
+    this.showError = false;
     const formValues = { ...registerFormValue };
     const user: UserForRegistrationDto = {
       firstName: formValues.firstName,
@@ -49,6 +52,8 @@ export class RegisterUserComponent implements OnInit {
       console.log("Successful registration");
     },
     error => {
+      this.errorMessage = error;
+      this.showError = true;
       console.log(error.error.errors);
     })
   }
